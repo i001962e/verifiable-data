@@ -28,3 +28,8 @@ Important field note:
 - issue-key returns `apiCredential`, not `credential`
 - stored combined token format should be:
   - `apiKey apiCredential`
+
+Operational note:
+- `issue-key.sh` writes a fresh token only when you pass an output path
+- `register-file.sh`, `get-seal.sh`, and `verify-file.sh` require `CRYPTOWERK_X_API_KEY`
+- required local tools are `curl`, `python3`, and one SHA-256 provider (`shasum`, `sha256sum`, or `openssl`)

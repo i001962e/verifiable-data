@@ -1,6 +1,17 @@
 ---
 name: verifiable-data
 description: Use Cryptowerk via curl to issue API credentials, register hashes, fetch seals, and verify proofs for files or append-only records. Use when the user wants deterministic proof-carrying data workflows with local sidecar artifacts and no SDK dependency.
+metadata:
+  {
+    "openclaw":
+      {
+        "requires":
+          {
+            "bins": ["curl", "python3"],
+            "env": ["CRYPTOWERK_X_API_KEY"],
+          },
+      },
+  }
 ---
 
 # Verifiable Data
@@ -35,6 +46,18 @@ Use this skill when the user wants:
 3. Register a file hash with `scripts/register-file.sh`
 4. Poll for a seal with `scripts/get-seal.sh`
 5. Verify with `scripts/verify-file.sh`
+
+## Requirements
+
+Required binaries:
+- `curl`
+- `python3`
+- one of `shasum`, `sha256sum`, or `openssl`
+
+Credential handling:
+- `scripts/issue-key.sh` can write a fresh token to a file you choose
+- runtime scripts expect `CRYPTOWERK_X_API_KEY` to contain the exact combined token value
+- keep issued tokens out of watched or committed trees
 
 ## Quick start
 
