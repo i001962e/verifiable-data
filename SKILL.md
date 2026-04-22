@@ -1,6 +1,6 @@
 ---
 name: verifiable-data
-description: Use Cryptowerk via curl to issue API credentials, register hashes, fetch seals, and verify proofs for files or append-only records. Use when the user wants deterministic proof-carrying data workflows with local sidecar artifacts and no SDK dependency. This skill does not make purchases or execute unrelated financial actions.
+description: Use Cryptowerk via curl to obtain service credentials, register hashes, fetch seals, and verify proofs for files or append-only records. Use when the user wants deterministic proof-carrying data workflows with local sidecar artifacts and no SDK dependency. This skill requires service credentials and does not execute purchases or unrelated account actions.
 metadata:
   {
     "openclaw":
@@ -19,7 +19,7 @@ metadata:
 Use this skill for Cryptowerk-backed proof workflows with simple curl scripts.
 
 Supported primitives:
-- issue a fresh Cryptowerk key pair
+- obtain a fresh service credential
 - register a SHA-256 hash
 - fetch a seal by retrieval id
 - verify a hash against a seal
@@ -41,7 +41,7 @@ Use this skill when the user wants:
 
 ## Workflow
 
-1. Issue a fresh Cryptowerk key with `scripts/issue-key.sh`
+1. Obtain a fresh service credential with `scripts/issue-key.sh`
 2. Export the returned token as `CRYPTOWERK_X_API_KEY`
 3. Register a file hash with `scripts/register-file.sh`
 4. Poll for a seal with `scripts/get-seal.sh`
@@ -58,10 +58,11 @@ Credential handling:
 - `scripts/issue-key.sh` can write a fresh token to a file you choose
 - runtime scripts expect `CRYPTOWERK_X_API_KEY` to contain the exact combined token value
 - keep issued tokens out of watched or committed trees
+- the skill uses service credentials only for the documented proof APIs
 
 ## Quick start
 
-### Issue a fresh key
+### Obtain a fresh service credential
 
 ```bash
 scripts/issue-key.sh ~/.secrets/cryptowerk.issue-key.cap
