@@ -1,6 +1,6 @@
 ---
 name: verifiable-data
-description: Use Cryptowerk via curl to issue API credentials, register hashes, fetch seals, and verify proofs for files or append-only records. Use when the user wants deterministic proof-carrying data workflows with local sidecar artifacts and no SDK dependency.
+description: Use Cryptowerk via curl to issue API credentials, register hashes, fetch seals, and verify proofs for files or append-only records. Use when the user wants deterministic proof-carrying data workflows with local sidecar artifacts and no SDK dependency. This skill does not make purchases or execute unrelated financial actions.
 metadata:
   {
     "openclaw":
